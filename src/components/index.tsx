@@ -41,6 +41,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ className, v
 
 Button.displayName = "Button"
 
+
+
+
+
+
+
+
+
+
 // 입력 컴포넌트
 export const Input = forwardRef(({ className, type, ...props }, ref) => {
   return (
@@ -53,6 +62,16 @@ export const Input = forwardRef(({ className, type, ...props }, ref) => {
   )
 })
 Input.displayName = "Input"
+
+
+
+
+
+
+
+
+
+
 
 // 카드 컴포넌트
 export const Card = forwardRef(({ className, ...props }, ref) => (
@@ -75,6 +94,18 @@ export const CardContent = forwardRef(({ className, ...props }, ref) => (
 ))
 CardContent.displayName = "CardContent"
 
+
+
+
+
+
+
+
+
+
+
+
+
 // 텍스트 영역 컴포넌트
 export const Textarea = forwardRef(({ className, ...props }, ref) => {
   return (
@@ -86,6 +117,20 @@ export const Textarea = forwardRef(({ className, ...props }, ref) => {
   )
 })
 Textarea.displayName = "Textarea"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // 선택 컴포넌트
 export const Select = SelectPrimitive.Root
@@ -134,6 +179,14 @@ export const SelectItem = forwardRef(({ className, children, ...props }, ref) =>
 ))
 SelectItem.displayName = SelectPrimitive.Item.displayName
 
+
+
+
+
+
+
+
+
 // 대화상자 컴포넌트
 export const Dialog = DialogPrimitive.Root
 export const DialogTrigger = DialogPrimitive.Trigger
@@ -171,6 +224,17 @@ export const DialogTitle = forwardRef(({ className, ...props }, ref) => (
   />
 ))
 DialogTitle.displayName = DialogPrimitive.Title.displayName
+
+
+
+
+
+
+
+
+
+
+
 
 // 테이블 컴포넌트
 export const Table = forwardRef(({ className, ...props }, ref) => (
