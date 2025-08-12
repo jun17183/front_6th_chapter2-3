@@ -1,6 +1,8 @@
+import { CreateCommentData } from "../model/types";
+
 const BASE_URL = '/api/comments';
 
-export const commentApi = {
+export const commentsApi = {
   // 댓글 가져오기
   getByPostId: async (postId: number) => {
     const response = await fetch(`${BASE_URL}/post/${postId}`);
@@ -8,8 +10,8 @@ export const commentApi = {
     return response.json();
   },
 
-  // 댓글 생성
-  create: async (commentData: Comment) => {
+  // 댓글 추가
+  create: async (commentData: CreateCommentData) => {
     const response = await fetch(`${BASE_URL}/add`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

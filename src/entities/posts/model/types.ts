@@ -27,6 +27,14 @@ export interface FetchPostsParams {
   skip?: number
 }
 
+// 게시물 목록 응답 타입
+export interface PostListResponse {
+  posts: Post[];
+  total: number;
+  skip: number;
+  limit: number;
+}
+
 // 게시물 추가 파라미터 타입
 export interface CreatePostData {
   title: string

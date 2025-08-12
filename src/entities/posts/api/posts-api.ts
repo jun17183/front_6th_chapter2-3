@@ -1,12 +1,12 @@
-import { CreatePostData, FetchPostsParams, Post } from "../model/types";
+import { CreatePostData, FetchPostsParams, Post, PostListResponse } from "../model/types";
 
 const BASE_URL = '/api/posts';
 const DEFAULT_LIMIT = 10;
 const DEFAULT_SKIP = 0;
 
-export const postApi = {
+export const postsApi = {
   // 기본 게시물 목록 가져오기
-  getPosts: async (params: FetchPostsParams): Promise<Post[]> => {
+  getPosts: async (params: FetchPostsParams): Promise<PostListResponse> => {
     const { limit = DEFAULT_LIMIT, skip = DEFAULT_SKIP } = params;
     const response = await fetch(`${BASE_URL}?limit=${limit}&skip=${skip}`);
     if (!response.ok) throw new Error('게시물 가져오기 오류: ' + response.statusText);
@@ -22,14 +22,14 @@ export const postApi = {
   },
 
   // 검색
-  searchPosts: async (query: string): Promise<Post[]> => {
+  searchPosts: async (query: string): Promise<PostListResponse> => {
     const response = await fetch(`${BASE_URL}/search?q=${encodeURIComponent(query)}`);
     if (!response.ok) throw new Error('검색 오류: ' + response.statusText);
     return response.json();
   },
 
   // 태그별 게시물 가져오기
-  getPostsByTag: async (tag: string): Promise<Post[]> => {
+  getPostsByTag: async (tag: string): Promise<PostListResponse> => {
     const response = await fetch(`${BASE_URL}/tag/${encodeURIComponent(tag)}`);
     if (!response.ok) throw new Error('태그별 게시물 가져오기 오류: ' + response.statusText);
     return response.json()
@@ -47,8 +47,8 @@ export const postApi = {
   },
 
   // 게시물 수정
-  update: async (id: number, postData: Post): Promise<Post> => {
-    const response = await fetch(`${BASE_URL}/${id}`, {
+  update: async (postData: Post): Promise<Post> => {
+    const response = await fetch(`${BASE_URL}/${postData.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(postData),
