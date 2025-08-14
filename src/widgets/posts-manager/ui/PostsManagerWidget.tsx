@@ -124,6 +124,8 @@ export const PostsManagerWidget = () => {
 
       setPosts(postsWithUsers)
       setTotal(searchData.total)
+      // 검색 결과로 목록을 새로 불러온 시점에 URL 동기화
+      updateURL()
     } catch (error) {
       console.error("게시물 검색 오류:", error)
     }
@@ -238,6 +240,8 @@ export const PostsManagerWidget = () => {
     } else {
       fetchPosts()
     }
+    // 목록을 새로 불러오는 모든 케이스에서 URL 동기화
+    updateURL()
   }, [skip, limit, sortBy, sortOrder, selectedTag, fetchPosts, fetchPostsByTag])
 
   useEffect(() => {
