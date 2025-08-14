@@ -1,5 +1,4 @@
 import { CreatePostData, FetchPostsParams, Post, PostListResponse } from "../model/types";
-
 const BASE_URL = '/api/posts';
 const DEFAULT_LIMIT = 10;
 const DEFAULT_SKIP = 0;

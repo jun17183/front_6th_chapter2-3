@@ -55,7 +55,7 @@ export const PostsManagerWidget = () => {
     try {
       const [postsResponse, usersResponse] = await Promise.all([
         fetch(`/api/posts?limit=${limit}&skip=${skip}`),
-        fetch("/api/users?limit=0&select=username,image"),
+        fetch(`/api/users?limit=0&select=username,image`),
       ])
       const postsData = await postsResponse.json()
       const usersData = await usersResponse.json()
@@ -112,7 +112,7 @@ export const PostsManagerWidget = () => {
     try {
       const [searchResponse, usersResponse] = await Promise.all([
         fetch(`/api/posts/search?q=${searchQuery}`),
-        fetch("/api/users?limit=0&select=username,image"),
+        fetch(`/api/users?limit=0&select=username,image`),
       ])
       const searchData = await searchResponse.json()
       const usersData = await usersResponse.json()
@@ -140,7 +140,7 @@ export const PostsManagerWidget = () => {
     try {
       const [postsResponse, usersResponse] = await Promise.all([
         fetch(`/api/posts/tag/${tag}`),
-        fetch("/api/users?limit=0&select=username,image"),
+        fetch(`/api/users?limit=0&select=username,image`),
       ])
       const postsData = await postsResponse.json()
       const usersData = await usersResponse.json()

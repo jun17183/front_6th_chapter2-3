@@ -1,5 +1,4 @@
 import { User } from "../model/types"
-
 const BASE_URL = '/api/users';
 
 export interface GetUsersParams {

@@ -1,5 +1,4 @@
 import { Comment, CreateCommentData, UpdateCommentData } from "../model/types"
-
 const BASE_URL = '/api/comments'
 
 export const commentsApi = {
