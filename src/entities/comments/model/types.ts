@@ -1,9 +1,12 @@
+import { User } from "../../user/model/types"
+
 export interface Comment {
   id: number
   body: string
   postId: number
   userId: number
   likes: number
+  user?: User // user 정보 추가
 }
 
 export interface CreateCommentData {
@@ -13,5 +16,6 @@ export interface CreateCommentData {
 }
 
 export interface UpdateCommentData {
-  id: number
+  body?: string
+  likes?: number
 }
